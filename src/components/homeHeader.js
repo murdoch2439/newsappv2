@@ -3,10 +3,13 @@ import {View, StyleSheet, Text} from 'react-native'
 import { Entypo } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 
-const HomeHeader = () =>{
+const HomeHeader = ({navigation}) =>{
+    const openMenu = () =>{
+        navigation.openDrawer()
+    }
     return(
         <View style={styles.container}>
-            <Entypo name="menu" style={styles.menu} />
+            <Entypo name="menu" style={styles.menu} onPress={openMenu} />
             <AntDesign name="bells" style={styles.bell}/>
         </View>
     )

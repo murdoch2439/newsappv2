@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React,{useState} from 'react';
 import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeStack from './src/homeStack'
+import DrawerNavigation from './src/drawerNavigation'
 import LandingPageScreen from './src/screens/landingPageScreen';
 
 export default function App() {
@@ -17,7 +17,7 @@ export default function App() {
   return (
     <NavigationContainer style={styles.container}>
       <StatusBar backgroundColor="#72A52F" style="light" translucent={false} />
-      <HomeStack />
+      <DrawerNavigation />
     </NavigationContainer>
   );
 }
