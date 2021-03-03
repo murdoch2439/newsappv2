@@ -2,16 +2,18 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeStack from './homeStack'
 import NotificationsScreen from './screens/notificationScreen'
-import FormScreen from './screens/connection/forms'
+import RegistrationStack from './screens/connection/registrationStack'
+// import HeaderWithBackButton from './components/headerwithbackbutton'
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigation = () =>{
         return(
         <Drawer.Navigator initialRouteName="Home">
-                <Drawer.Screen name="Registration" component={FormScreen} />
+                <Drawer.Screen name="Registration" component={RegistrationStack} />
                 <Drawer.Screen name="Home" component={HomeStack} />
                 <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+                {/* <Drawer.Screen name="Notifications" component={NotificationsScreen} options={{ header: ({navigation})=> <HeaderWithBackButton navigation={navigation} />}}/> */}
         </Drawer.Navigator>
         )
 

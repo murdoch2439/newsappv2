@@ -1,10 +1,10 @@
 import React from 'react';
-import {View,StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 
-const FormScreen = () =>{
+const ConfirmationScreen = () =>{
   return(
     <View style={styles.container}>
-      <Text>Form Screen</Text>
+      <Text>Confirmation Screen</Text>
     </View>
   )
 }
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default FormScreen
+export default ConfirmationScreen

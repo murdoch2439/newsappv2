@@ -1,5 +1,5 @@
-import React from 'react'
-import {View, StyleSheet, Image} from 'react-native'
+import React from 'react';
+import {View, StyleSheet, Image} from 'react-native';
 import { Feather as anotherIcon } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 const HomeHeader = ({navigation}) =>{
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         backgroundColor:'white',
         alignItems:'center',
         justifyContent:'space-between',
-        paddingHorizontal:5
+        paddingHorizontal:15
     },
     menu:{
         fontSize:30,
