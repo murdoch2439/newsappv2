@@ -1,15 +1,27 @@
 import React from 'react';
-import {View,StyleSheet, Text} from 'react-native';
+import {View,StyleSheet, Text, Image} from 'react-native';
 const DetailsScreen = () =>{
-    return(<View style={styles.container}>
-        <Text> Good day this is Details screen</Text>
-    </View>)
+    return(
+        <View style={styles.container}>
+        <Image source={require('../../assets/banniere.jpg')} style={styles.image} />
+        <Text style={styles.title}>Here will go the title of the article</Text>
+        <Text>Here will go the whole content description of an article</Text>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
     container:{
         flex:1,
     },
+    image:{
+        width:'100%',
+        height:200,
+    },
+    title:{
+        fontWeight:'bold',
+        marginVertical:10,
+    }
 })
 
 export default DetailsScreen
