@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     height:60,
     width:320,
     borderRadius:5,
-    marginTop:170,
+    marginTop:150,
   },
   buttonText:{
     color:'white',
