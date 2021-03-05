@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
     height:180,
     borderTopRightRadius:5,
     borderTopLeftRadius:5,
-    
   },
   title:{
     fontWeight:'600',
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
     marginTop:-10,
     fontSize:15,
     textAlign:'justify',
-    // overflow:'hidden'
+    //overflow:'hidden'
   }
 })
 
