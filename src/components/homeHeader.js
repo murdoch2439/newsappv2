@@ -13,7 +13,7 @@ const HomeHeader = ({navigation}) =>{
     return(
         <View style={styles.container}>
             <Feather name="menu" style={styles.menu} onPress={openMenu} />
-            {/* <Image source={require('../../assets/logo.jpg')} style={styles.image} /> */}
+            <Image source={require('../../assets/logo.jpg')} style={styles.image} />
             <Feather name="bell" style={styles.bell} onPress={openNotificationsScreen}/>
         </View>
     )
@@ -23,22 +23,23 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
         height:60,
-        backgroundColor:'white',
+        backgroundColor:'#72A52F',
         alignItems:'center',
         justifyContent:'space-between',
         paddingHorizontal:15
     },
     menu:{
         fontSize:30,
-        color:'black',
+        color:'white',
     },
     bell:{
         fontSize:25,
-        color:'black',
+        color:'white',
     },
     image:{
         width:50,
-        height:50
+        height:50,
+        borderRadius:100,
     },
 })
 
