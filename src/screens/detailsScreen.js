@@ -1,10 +1,11 @@
 import React from 'react';
 import {View,StyleSheet, Text, Image} from 'react-native';
-const DetailsScreen = () =>{
+const DetailsScreen = ({}) =>{
+    
     return(
         <View style={styles.container}>
         <Image source={require('../../assets/banniere.jpg')} style={styles.image} />
-        <Text style={styles.title}>Here will go the title of the article</Text>
+        <Text style={styles.title}>balalala</Text>
         <Text>Here will go the whole content description of an article</Text>
         </View>
     )
