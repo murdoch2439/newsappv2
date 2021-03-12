@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View,StyleSheet, Text, Image, TextInput, TouchableOpacity} from 'react-native';
+import ButtonComponent from '../../components/Button';
 
 const FormScreen = ({navigation}) =>{
   const [name, setName] = useState()
@@ -22,7 +23,10 @@ const FormScreen = ({navigation}) =>{
         <Image source={require('../../../assets/logo.jpg')} style={styles.image} />
       </View>
       <View style={styles.descriptionContainer}>
-        <Text style={styles.description}>Le plus grand site d'infos en RDC</Text>
+        <Text style={styles.description}>
+          Le plus grand site d'infos en
+          <Text style={styles.rdc}> RDC</Text>
+        </Text>
       </View>
       <View style={styles.textInputContainer}>
         <TextInput 
@@ -40,9 +44,8 @@ const FormScreen = ({navigation}) =>{
           onChangeText={retrievePhoneNumber}
         />
         {name || phoneNumber ? <Text>{name}, ton numero c'est {phoneNumber}</Text>: null}
-        <TouchableOpacity style={styles.button} onPress={goToConfirmationScreen}>
-          <Text style={styles.buttonText}>S'inscrire</Text>
-        </TouchableOpacity>
+        <ButtonComponent title="S'inscrire" onPress={goToConfirmationScreen} />
+        
       </View>
       
     </View>
@@ -67,6 +70,14 @@ const styles = StyleSheet.create({
   description:{
     fontStyle:'italic',
     fontSize:16,
+    fontWeight:'bold'
+  },
+  rdc:{
+    color:'#72A52F',
+    fontStyle:'italic',
+    fontSize:16,
+    fontWeight:'bold'
+    
   },
   image:{
     height:70,
@@ -84,21 +95,7 @@ const styles = StyleSheet.create({
     borderColor:'purple',
     marginHorizontal:20,
   },
-  button:{
-    marginLeft:20,
-    backgroundColor:'#73A532', 
-    height:60,
-    width:320,
-    borderRadius:5,
-    marginTop:150,
-  },
-  buttonText:{
-    color:'white',
-    textAlign:'center',
-    fontSize:25,
-    paddingTop:12,
-    fontWeight:'bold'
-  },
+  
 })
 
 export default FormScreen
