@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 const AboutStack = () =>{
   return(
     <Stack.Navigator>
-      <Stack.Screen name="About us" component={AboutScreen} />
+      <Stack.Screen name="Qui sommes-nous?" component={AboutScreen} options={{headerTitleAlign:'center'}} />
       <Stack.Screen name="The team" component={TeamScreen} />
     </Stack.Navigator>
   )
