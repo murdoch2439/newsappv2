@@ -33,19 +33,11 @@ const HomeScreen = ({navigation}) => {
         return null
     }
 
-    const renderItem = ({item}) =>{
-                    return(
-                        
-                            <InfoCard item={item}  />
-                        
-                        
-                    )
-                }
-
+    const renderItem = item => <InfoCard item={item}  />;
+                    
 
     return(
         
-
         <View style = { styles.container }>           
             
             <FlatList 
@@ -63,6 +55,7 @@ const HomeScreen = ({navigation}) => {
 
                     return null;
                 }}
+                
             />
             
             <Button title="Go to Details Screen" onPress={()=> navigation.navigate('Details')}/> 
