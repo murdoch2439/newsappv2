@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View,StyleSheet, Text, Image, TextInput, TouchableOpacity} from 'react-native';
 import ButtonComponent from '../../components/Button';
+import {AntDesign} from '@expo/vector-icons'
 
 const FormScreen = ({navigation}) =>{
   const [name, setName] = useState()
@@ -43,6 +44,14 @@ const FormScreen = ({navigation}) =>{
           maxLength={10}
           onChangeText={retrievePhoneNumber}
         />
+        {phoneNumber.length < 10 ?
+        <View style={{flexDirection:'row'}}>
+          <Text style={{color:'gray',marginLeft:20, fontSize:12}}>Le numero doit avoir 10 characteres </Text>
+          <AntDesign name="checkcircle" size={16} color="gray" />
+        </View>  :<View style={{flexDirection:'row'}}>
+          <Text style={{color:'green',marginLeft:20, fontSize:12}}>Le numero doit avoir 10 characteres </Text>
+          <AntDesign name="checkcircle" size={16} color="green" />
+        </View>}
         {name || phoneNumber ? <Text>{name}, ton numero c'est {phoneNumber}</Text>: null}
         <ButtonComponent title="S'inscrire" onPress={goToConfirmationScreen} />
         
