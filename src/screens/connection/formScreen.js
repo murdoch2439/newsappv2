@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View,StyleSheet, Text, Image, TextInput, TouchableOpacity} from 'react-native';
+import {View,StyleSheet, Text, Image, TextInput} from 'react-native';
 import ButtonComponent from '../../components/Button';
 import {AntDesign} from '@expo/vector-icons'
 
@@ -15,7 +15,7 @@ const FormScreen = ({navigation}) =>{
   }
 
   const goToConfirmationScreen = () =>{
-    console.log(`Tu t'appelle ${name} et voici ton numero ${phoneNumber}`);
+    // console.log(`Tu t'appelle ${name} et voici ton numero ${phoneNumber}`);
       navigation.navigate('Confirmation')
   }
   return(
