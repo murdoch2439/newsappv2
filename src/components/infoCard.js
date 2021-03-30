@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text, Image, TouchableNativeFeedback} from 'react-native';
 import { Fontisto } from '@expo/vector-icons';
-import { Fontisto as one } from '@expo/vector-icons';
+import { Fontisto as bookm } from '@expo/vector-icons';
 
 const InfoCard = ({item, navigation}) =>{
   const [addBookmark, setAddbookmark] = useState(false)
@@ -13,11 +13,11 @@ const InfoCard = ({item, navigation}) =>{
     setAddbookmark(false)
   }
   return(
-    <View style={styles.container}>
-      <TouchableOpacity onPress={()=> navigation.navigate('Details')}>
-          
+      // <TouchableNativeFeedback onPress={({item})=> navigation.navigate('Details', item.id)}>
+        <View style={styles.container}>
+        
           <View style={styles.imageContainer}>
-            {!item.urlToImage ? <Image source={require('../../assets/noImage.png')} style={{width:200, height:200, backgroundColor:'gray', marginHorizontal: 70}} />:<Image source={{uri:item.urlToImage}} style={styles.image} />}
+            {!item.field_image ? <Image source={require('../../assets/noImage.png')} style={{width:200, height:200, backgroundColor:'gray', marginHorizontal: 70}} />:<Image source={{uri:`https://7sur7.cd${item.field_image}`}} style={styles.image} />}
           </View>
 
           <View style={styles.bookMarkContainer}>
@@ -25,20 +25,20 @@ const InfoCard = ({item, navigation}) =>{
           </View>
 
           <View style={styles.labelAndDateContainer}>
-             {item.author ? <Text style={styles.label}>{item.author}</Text> : <Text style={styles.label1}></Text>}          
-            <Text style={styles.date}>{item.publishedAt}</Text>
+             {item.field_categorie ? <Text style={styles.label}>{item.field_categorie}</Text> : <Text style={styles.label1}></Text>}          
+            <Text style={styles.date}>{item.created}</Text>
           </View>
           {/* <Text style={styles.title} numberOfLines={4}>RDC: Here goes the info title that describe well the article, this should fit on 4 lines only I wish it will be good enough for people to enjoy what will be shown here I've got nothing left to say but I need to say something to fill the space and check out what the output will look like, that why I'm sorry to joke on you  </Text> */}
           
-          <Text style={styles.title} numberOfLines={4}>{item.description}</Text>
-      </TouchableOpacity>
-    </View>
+          <Text style={styles.title} numberOfLines={4}>{item.title}</Text>
+      </View>
+    // </TouchableNativeFeedback>
   );
 }
 
 const styles = StyleSheet.create({
   container:{
-    height:300,
+    height:310,
     backgroundColor:'white',
     margin:15,
     borderRadius:5,
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
   imageContainer:{
     backgroundColor:'gray',
     width:'100%',
-    borderRadius:10,
+    borderTopRightRadius:5,
+    borderTopLeftRadius:5,
   },
   image:{
     width:'100%',
