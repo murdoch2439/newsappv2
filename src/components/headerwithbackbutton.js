@@ -2,13 +2,13 @@ import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-const HeaderWithBackButton = () =>{
+const HeaderWithBackButton = ({goBackToHome}) =>{
 
   
     
     return(
         <View style={styles.container}>
-            <MaterialCommunityIcons name="keyboard-backspace" style={styles.backButton} />
+            <MaterialCommunityIcons name="keyboard-backspace" style={styles.backButton} onPress={goBackToHome} />
         </View>
     )
 }

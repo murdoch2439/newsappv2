@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         height:60,
         backgroundColor:'#72A52F',
+        // backgroundColor:'white',
         alignItems:'center',
         justifyContent:'space-between',
         paddingHorizontal:15
@@ -31,10 +32,12 @@ const styles = StyleSheet.create({
     menu:{
         fontSize:30,
         color:'white',
+        // color:'black'
     },
     bell:{
         fontSize:25,
         color:'white',
+        // color:'black'
     },
     image:{
         width:50,

@@ -8,7 +8,7 @@ const ShareButton = () =>{
     const onShare = async () => {
     try {
       const result = await Share.share({
-        message: 'React Native | A framework for building native apps using React',
+        message: 'https://stopchantage.com',
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, Text, Image, TouchableNativeFeedback} from 'react-native';
+import {View, StyleSheet, Text, Image, TouchableNativeFeedback, TouchableWithoutFeedback} from 'react-native';
 import { Fontisto } from '@expo/vector-icons';
 import { Fontisto as bookm } from '@expo/vector-icons';
 
-const InfoCard = ({item, navigation}) =>{
+const InfoCard = ({item, navigation, onPressHandler}) =>{
   const [addBookmark, setAddbookmark] = useState(false)
   
   const saveToFavorite = () =>{
@@ -13,11 +13,11 @@ const InfoCard = ({item, navigation}) =>{
     setAddbookmark(false)
   }
   return(
-      // <TouchableNativeFeedback onPress={({item})=> navigation.navigate('Details', item.id)}>
-        <View style={styles.container}>
+      <TouchableWithoutFeedback onPress={onPressHandler}>
+        <View style={styles.container} >
         
           <View style={styles.imageContainer}>
-            {!item.field_image ? <Image source={require('../../assets/noImage.png')} style={{width:200, height:200, backgroundColor:'gray', marginHorizontal: 70}} />:<Image source={{uri:`https://7sur7.cd${item.field_image}`}} style={styles.image} />}
+            {!item.field_image ? <Image source={require('../../assets/noImage.png')} style={{width:200, height:200, backgroundColor:'gray'}} />:<Image source={{uri:`https://7sur7.cd${item.field_image}`}} style={styles.image} />}
           </View>
 
           <View style={styles.bookMarkContainer}>
@@ -32,7 +32,7 @@ const InfoCard = ({item, navigation}) =>{
           
           <Text style={styles.title} numberOfLines={4}>{item.title}</Text>
       </View>
-    // </TouchableNativeFeedback>
+   </TouchableWithoutFeedback>
   );
 }
 
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   imageContainer:{
     backgroundColor:'gray',
     width:'100%',
+    alignItems:'center',
     borderTopRightRadius:5,
     borderTopLeftRadius:5,
   },
@@ -54,6 +55,8 @@ const styles = StyleSheet.create({
     height:180,
     borderTopRightRadius:5,
     borderTopLeftRadius:5,
+    opacity:0.8,
+    backgroundColor:'black'
   },
   bookMarkContainer:{
     // backgroundColor:'pink',
@@ -65,6 +68,8 @@ const styles = StyleSheet.create({
   bookMark:{
     fontSize:35,
     color:'white',
+    backgroundColor:'transparent',
+    
     
     // bottom:180,
     // left:170,
