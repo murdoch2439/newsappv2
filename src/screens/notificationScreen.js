@@ -3,9 +3,12 @@ import {View,StyleSheet,Text} from 'react-native';
 import HeaderWithBackButton from '../components/headerwithbackbutton'
 
 const NotificationsScreen = ({navigation}) =>{
+  const goBackToHome = () =>{
+        navigation.goBack()
+    }
   return(
     <View style={styles.container}>
-      <HeaderWithBackButton />
+      <HeaderWithBackButton goBackToHome={goBackToHome} />
       <Text>Notification Screen</Text>
     </View>
   )

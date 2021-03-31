@@ -9,6 +9,7 @@ import SocialInfosScreen from './sociale';
 import SanteInfosScreen from './santeTab';
 import CultureInfosScreen from './cultureTab';
 import SportInfosScreen from './sportTab';
+import { color } from 'react-native-reanimated';
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -19,11 +20,17 @@ const TabNavigationStack = () => {
     <Tab.Navigator  
       initialRouteName="A la une" lazy={true}
       tabBarOptions={{
-        activeTintColor:'white',
-        inactiveTintColor:'#ccd5ae',
+        upperCaseLabel: false,
+        activeTintColor:'#72A52F',
+        // inactiveTintColor:'#ccd5ae',
+        inactiveTintColor:'black',
         scrollEnabled:true,
-        tabStyle: { width: 100,backgroundColor:'#72A52F' },
+        tabStyle: { width: 100 },
         labelStyle: { fontSize: 12, fontWeight:'700'},
+        indicatorStyle:{backgroundColor:'#72A52F'}
+        //normally tab style should have a background color of #72A52F and indicatorStyle no value
+        
+        
     
       }}>
       <Tab.Screen name="A la une" component={HomeScreen} />
