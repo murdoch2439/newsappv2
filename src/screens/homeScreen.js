@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import { View, StyleSheet, Button, FlatList, ActivityIndicator, TouchableNativeFeedback } from 'react-native'
+import { View, StyleSheet, Button, FlatList, ActivityIndicator } from 'react-native'
 import InfoCard from '../components/infoCard'
-import newApi from '../../api/actuApi'
+// import newApi from '../../api/actuApi'
 import axios from 'axios'
 
 
@@ -36,16 +36,17 @@ const HomeScreen = ({navigation}) => {
     //     return null
     // }
 
-    const renderItem = ({item}) => <InfoCard item={item}  />;
+    const renderItem = ({item}) => <InfoCard item={item} onPressHandler={()=> navigation.navigate('Details', {item:item})} />;
                     
 
     return(
         
         <View style = { styles.container }>           
             
-            <FlatList 
+            <FlatList
+                showsVerticalScrollIndicator={false}
                 data={news}
-                keyExtractor={(article) => article.body}
+                keyExtractor={(article) => article.nid}
                 renderItem ={renderItem}
                 ListEmptyComponent={() => {
                     if (loading) {
@@ -59,9 +60,9 @@ const HomeScreen = ({navigation}) => {
                     return null;
                 }}
                 
+                
             />
             
-            <Button title="Go to Details Screen" onPress={()=> navigation.navigate('Details')}/> 
         </View>
     )
 }
@@ -73,9 +74,9 @@ const styles = StyleSheet.create({
 
     },
     loading: {
-        marginVertical: 250,
-        justifyContent:'center',
-        alignItems:'center',
+        flex:1,
+        // justifyContent:'center',
+        // alignItems:'center',
     },
 })
 
