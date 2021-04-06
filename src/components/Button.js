@@ -17,14 +17,15 @@ const styles = StyleSheet.create({
     height:60,
     width:320,
     borderRadius:5,
-    marginTop:150,
+    marginTop:110,
+    marginBottom:10
   },
   buttonText:{
     color:'white',
     textAlign:'center',
     fontSize:25,
     paddingTop:12,
-    fontWeight:'bold'
+    fontWeight:'bold',
   },
 })
 
