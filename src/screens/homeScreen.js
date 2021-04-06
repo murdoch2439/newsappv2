@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import { View, StyleSheet, Button, FlatList, ActivityIndicator } from 'react-native'
 import InfoCard from '../components/infoCard'
-// import newApi from '../../api/actuApi'
-import axios from 'axios'
+import articlesApi from '../../api/7s7Api'
+// import axios from 'axios'
 
 
 
 const HomeScreen = ({navigation}) => {
     const [news, setNews] = useState([])
     const [loading, setLoading] = useState(true)
-    
+        
     useEffect(()=>{
         setTimeout(()=>{
 
@@ -19,7 +19,7 @@ const HomeScreen = ({navigation}) => {
 
     }, [])
     const getNewsFromAPI = () =>{
-        axios.get('https://7sur7.cd/api/v1/articles/all')
+        articlesApi.get('/all')
         .then( async (response) => {
             // console.log(response.data);
             setNews(response.data)
@@ -60,7 +60,6 @@ const HomeScreen = ({navigation}) => {
                     return null;
                 }}
                 
-                
             />
             
         </View>
@@ -74,9 +73,12 @@ const styles = StyleSheet.create({
 
     },
     loading: {
-        flex:1,
+        // flex:1,
         // justifyContent:'center',
         // alignItems:'center',
+        marginVertical: 250,
+        justifyContent:'center',
+        alignItems:'center',
     },
 })
 
