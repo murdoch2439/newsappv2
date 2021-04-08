@@ -7,6 +7,7 @@ import axios from 'axios';
 const FormScreen = ({navigation}) =>{
   const [name, setName] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
+  
 
   const retrieveUsername = (newValue) =>{
     setName(newValue)
@@ -15,14 +16,14 @@ const FormScreen = ({navigation}) =>{
     setPhoneNumber(newValue)
   }
 
-  const goToConfirmationScreen = ({name, phoneNumber}) =>{
-    // console.log(`Tu t'appelle ${name} et voici ton numero ${phoneNumber}`);
+  const goToConfirmationScreen = () =>{
+    console.log({"name":name, "numero":phoneNumber});
     // axios.post('/somewhere', {name, phoneNumber})
     //   .then((res)=>{})
     //   .catch((error) =>{
 
     //   })
-      navigation.navigate('Confirmation')
+      // navigation.navigate('Confirmation')
   }
 
   const dismissKeyboard = () =>{

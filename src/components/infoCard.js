@@ -4,6 +4,7 @@ import { Fontisto } from '@expo/vector-icons';
 import { Fontisto as bookm } from '@expo/vector-icons';
 
 const InfoCard = ({item, navigation, onPressHandler}) =>{
+  const {field_image, field_categorie, created, title} = item
   const [addBookmark, setAddbookmark] = useState(false)
   
   const saveToFavorite = () =>{
@@ -17,7 +18,7 @@ const InfoCard = ({item, navigation, onPressHandler}) =>{
         <View style={styles.container} >
         
           <View style={styles.imageContainer}>
-            {!item.field_image ? <Image source={require('../../assets/noImage.png')} style={{width:200, height:200, backgroundColor:'gray'}} />:<Image source={{uri:`https://7sur7.cd${item.field_image}`}} style={styles.image} />}
+            {field_image ?<Image source={{uri:`https://7sur7.cd${item.field_image}`}} style={styles.image} />:<Image source={require('../../assets/noImage.png')} style={{width:200, height:200, backgroundColor:'gray'}} />}
           </View>
 
           <View style={styles.bookMarkContainer}>
@@ -25,12 +26,12 @@ const InfoCard = ({item, navigation, onPressHandler}) =>{
           </View>
 
           <View style={styles.labelAndDateContainer}>
-             {item.field_categorie ? <Text style={styles.label}>{item.field_categorie}</Text> : <Text style={styles.label1}></Text>}          
-            <Text style={styles.date}>{item.created}</Text>
+             {field_categorie ? <Text style={styles.label}>{item.field_categorie}</Text> : <Text style={styles.label1}></Text>}          
+            <Text style={styles.date}>{created}</Text>
           </View>
           {/* <Text style={styles.title} numberOfLines={4}>RDC: Here goes the info title that describe well the article, this should fit on 4 lines only I wish it will be good enough for people to enjoy what will be shown here I've got nothing left to say but I need to say something to fill the space and check out what the output will look like, that why I'm sorry to joke on you  </Text> */}
           
-          <Text style={styles.title} numberOfLines={4}>{item.title}</Text>
+          <Text style={styles.title} numberOfLines={4}>{title}</Text>
       </View>
    </TouchableWithoutFeedback>
   );
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius:5,
     borderTopLeftRadius:5,
     opacity:0.8,
-    backgroundColor:'black'
+    backgroundColor:'gray'
   },
   bookMarkContainer:{
     // backgroundColor:'pink',

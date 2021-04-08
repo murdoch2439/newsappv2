@@ -1,15 +1,29 @@
 import React, {useState, useEffect} from 'react'
-import { View, StyleSheet, Button, FlatList, ActivityIndicator } from 'react-native'
+import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native'
 import InfoCard from '../components/infoCard'
-import articlesApi from '../../api/7s7Api'
+import articlesApi from '../api/7s7Api'
 // import axios from 'axios'
+
+
 
 
 
 const HomeScreen = ({navigation}) => {
     const [news, setNews] = useState([])
     const [loading, setLoading] = useState(true)
-        
+
+    const listEmptyComponent = () => {
+        if (loading) {
+                    return (
+                        <View style={styles.loading}>
+                            <ActivityIndicator size="large"  color="#72A52F" />
+                        </View>
+                        );
+                    }
+
+                    return null;
+    }
+
     useEffect(()=>{
         setTimeout(()=>{
 
@@ -46,19 +60,9 @@ const HomeScreen = ({navigation}) => {
             <FlatList
                 showsVerticalScrollIndicator={false}
                 data={news}
-                keyExtractor={(article) => article.nid}
+                keyExtractor={(article) => String(article.nid)}
                 renderItem ={renderItem}
-                ListEmptyComponent={() => {
-                    if (loading) {
-                        return (
-                        <View style={styles.loading}>
-                            <ActivityIndicator size="large"  color="#72A52F" />
-                        </View>
-                        );
-                    }
-
-                    return null;
-                }}
+                ListEmptyComponent={listEmptyComponent}
                 
             />
             
