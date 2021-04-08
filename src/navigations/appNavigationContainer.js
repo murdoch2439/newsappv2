@@ -1,15 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { StatusBar } from 'expo-status-bar';
 import {NavigationContainer } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
-import DrawerNavigation from './drawerNavigation';
+import AuthDrawerNavigation from './AuthDrawerNavigation';
+import LoggedDrawerNavigation from './LoggedNavigation';
 // import OnboardingScreen from '../components/onboarding/onboarding';
 
 const AppNavigationContainer = () =>{
+  const {isLogged, setIslogged} = useState
     return (
             <NavigationContainer style={styles.container}>
               <StatusBar backgroundColor="#72A52F" style="light" translucent={false} />
-              <DrawerNavigation />
+              {isLogged ? <LoggedDrawerNavigation />: <AuthDrawerNavigation /> }
+              {/* <AuthDrawerNavigation />
+              <LoggedDrawerNavigation /> */}
               {/* <OnboardingScreen /> */}
             </NavigationContainer>
     )
