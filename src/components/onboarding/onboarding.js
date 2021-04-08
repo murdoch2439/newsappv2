@@ -2,14 +2,16 @@ import React, {useState, useRef} from 'react';
 import {View, StyleSheet, Text, FlatList, Animated} from 'react-native';
 import OnBoardingItem from './onboardingItem';
 import Paginator from './paginator'
-import slices from './slides'
+import slides from './slides'
+import NextButton from './nextButton'
 
 
 const OnboardingScreen = () =>{
   const {currentIndex, setCurrentIndex} = useState(0);
 
   const scrollX = useRef(new Animated.Value(0)).current;
-  const slicesRef = useRef(null);
+
+  const slidesRef = useRef(null);
 
   const viewableItemsChanged = useRef(({viewableItems})=> {
     setCurrentIndex(viewableItems[0].index);
@@ -17,20 +19,29 @@ const OnboardingScreen = () =>{
 
   const viewConfig = useRef({viewAreaCoveragePercentThreshold:50}).current;
 
+  const scrollTo = () =>{
+    // console.log('it works');
+      if(currentIndex < slides.length -1){
+        slidesRef.curent.scrollToIndex({index: currentIndex + 1})
+      } else{
+        console.log('Last item');
+      }
+  }
+
 
   return(
     <View style={styles.container}>
       <View style={{flex:3}}>
 
         <FlatList
-          data={slices}
+          data={slides}
           keyExtractor={(item)=> item.id}
           renderItem = { ({item}) =>
             <OnBoardingItem item={item} />
           }
 
           horizontal
-          showsHorizontalScrollIndicator
+          showsHorizontalScrollIndicator ={false}
           pagingEnabled
           bounces={false}
           onScroll={Animated.event([{nativeEvent:{contentOffset:{x: scrollX}}}], {useNativeDriver:false,})}
@@ -38,11 +49,18 @@ const OnboardingScreen = () =>{
           scrollEventThrottle={32}
           onViewableItemsChanged={viewableItemsChanged}
           viewabilityConfig={viewConfig}
-          ref={slicesRef}
+          ref={slidesRef}
 
         />
       </View>
-      <Paginator data={slices} />
+
+      <Paginator data={slides} scrollX={scrollX} />
+      
+      <NextButton
+        scrollTo={scrollTo} 
+         percentage ={(currentIndex + 1) * (100 / slides.length)}
+      />
+
     </View>
   )
 }
