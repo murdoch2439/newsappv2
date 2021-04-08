@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
-import LandingPageScreen from './src/screens/landingPageScreen';
-import AppNavigationContainer from './src/navigations';
+import AppNavigationContainer from './src/navigations/AppNavigationContainer';
+// import LandingPageScreen from './src/screens/landingPageScreen';
 
 
 
