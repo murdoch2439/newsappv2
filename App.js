@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import GlobalProvider from './src/context/Provider';
 import AppNavigationContainer from './src/navigations/AppNavigationContainer';
 // import LandingPageScreen from './src/screens/landingPageScreen';
 
@@ -16,7 +17,9 @@ export default function App() {
     // <SafeAreaView>
 
     // <ScrollView>
+    <GlobalProvider>
       <AppNavigationContainer />
+    </GlobalProvider>
     // </ScrollView>
     // </SafeAreaView>
   );
