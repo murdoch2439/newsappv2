@@ -34,7 +34,6 @@ const ConfirmationScreen = () =>{
           </TouchableOpacity>
           <ButtonComponent title="Valider" />
         </View>
-        
       </View>
     </TouchableWithoutFeedback>
   )
