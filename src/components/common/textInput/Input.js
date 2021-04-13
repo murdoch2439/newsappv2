@@ -1,21 +1,46 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {View,StyleSheet, TextInput, Text} from 'react-native';
+import colors from '../../theme/colors';
 
-const InputComponent = ({placeholder, autoCapitalize, autoCompleteType, onChangeText, value, label, maxLength, keyboardType, icon, iconPosition}) =>{
+const InputComponent = ({
+  placeholder, 
+  autoCapitalize, 
+  autoCompleteType, 
+  onChangeText, 
+  value, 
+  label, 
+  maxLength, 
+  keyboardType, 
+  icon,
+  ...props}) =>{
+  const [focused, setFocused] = useState(false)
+
+  const getBorderColor = () =>{
+    if(focused){
+      return colors.primary
+    }else{
+      return colors.grey
+    }
+  }
+
+
   return(
-    <View style={styles.textInputContainer}>
-      {/* {label && <Text>{label}</Text>} */}
+    <View style={styles.Container}>
+      {label && <Text>{label}</Text>}
       <View>
-        <View style={{ flexDirection:'row'}}>
+        <View style={[styles.textInputContainer, {borderColor:getBorderColor()}]}>
           <TextInput 
-          placeholder={placeholder} 
-          style={styles.textInput} 
-          autoCapitalize={autoCapitalize} 
-          autoCompleteType={autoCompleteType}
-          onChangeText={onChangeText}
-          value={value}
-          keyboardType={keyboardType}
-          maxLength={maxLength}
+            placeholder={placeholder} 
+            style={styles.textInput} 
+            autoCapitalize={autoCapitalize} 
+            autoCompleteType={autoCompleteType}
+            onChangeText={onChangeText}
+            value={value}
+            keyboardType={keyboardType}
+            maxLength={maxLength}
+            onFocus={() =>{setFocused(true)}}
+            onBlur={() =>{setFocused(false)}}
+            // {...props}
           />
           
           <View style={styles.icon}>
@@ -32,29 +57,25 @@ const InputComponent = ({placeholder, autoCapitalize, autoCompleteType, onChange
 }
 
 const styles = StyleSheet.create({
-  textInputContainer:{
+  Container:{
     marginTop:30,
     marginHorizontal:20,
     // paddingHorizontal:10,
-    // backgroundColor:'yellow',
+    // backgroundColor:'red',
     // justifyContent:'center'
   },
+  textInputContainer:{
+    flexDirection:'row', 
+    borderBottomWidth:1,
+  },
   textInput:{
-    // backgroundColor:'red',
+    flex:1,
     fontSize:18,
     height:50,
-    // marginBottom:10,
-    borderBottomWidth:1,
-    borderColor:'#72A52F',
-    
     paddingHorizontal:5,
-    flex:1,
   },
   icon:{
-    justifyContent:'center',
-    borderBottomWidth:1,
-    borderColor:'#72A52F',
-    // backgroundColor:'red'
+    justifyContent:'center',    
   }
 })
 
