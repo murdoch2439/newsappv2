@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, Image, TouchableNativeFeedback, TouchableWithoutFeedback} from 'react-native';
 import { Fontisto } from '@expo/vector-icons';
-import { Fontisto as bookm } from '@expo/vector-icons';
 
 const InfoCard = ({item, navigation, onPressHandler}) =>{
   const {field_image, field_categorie, created, title} = item
