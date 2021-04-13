@@ -1,9 +1,9 @@
 export default {
-  primary:'',
-  secondary:'',
+  primary:'#72A52F',
+  secondary:'green',
   accent:'',
-  danger:'',
+  danger:'red',
   success:'',
-  grey:'',
-  white:'',
+  grey:'grey',
+  white:'white',
 }
