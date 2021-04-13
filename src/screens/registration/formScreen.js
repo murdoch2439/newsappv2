@@ -9,6 +9,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import axiosInstance from '../../api/key';
 
 
+
 const FormScreen = ({navigation}) =>{
   const [userName, setUserName] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
@@ -51,11 +52,11 @@ const FormScreen = ({navigation}) =>{
 //   }
 
 
-  useEffect(()=>{
-    axiosInstance.post('/auth/registration').catch((error)=>{
-      console.log(error);
-    })
-  }, [])
+  // useEffect(()=>{
+  //   axiosInstance.post('/contacts').catch((error)=>{
+  //     console.log(error);
+  //   })
+  // }, [])
 
 
   return(
