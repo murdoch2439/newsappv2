@@ -12,13 +12,20 @@ const InputComponent = ({
   maxLength, 
   keyboardType, 
   icon,
+  error,
   ...props}) =>{
   const [focused, setFocused] = useState(false)
 
   const getBorderColor = () =>{
+    if(error){
+      return colors.danger
+    }
+
     if(focused){
       return colors.primary
-    }else{
+    }
+    
+    else{
       return colors.grey
     }
   }
@@ -48,7 +55,9 @@ const InputComponent = ({
           {icon &&  icon}
           </View>
 
+
         </View>
+          {error && <Text style={styles.errorMessage}>{error}</Text>}
       </View>
       
     </View>
@@ -76,7 +85,15 @@ const styles = StyleSheet.create({
   },
   icon:{
     justifyContent:'center',    
-  }
+  },
+  errorMessage:{
+    color:colors.danger,
+    fontSize:12,
+    paddingTop:4,
+    paddingLeft:5,
+    fontStyle:'italic'
+
+  },
 })
 
 export default InputComponent

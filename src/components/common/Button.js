@@ -26,9 +26,9 @@ const ButtonComponent = ({title, loading, primary, secondary, danger, disabled, 
         style={[styles.button,{backgroundColor: getBackgroundColor()}]} 
         onPress={onPress} >
           <View style={styles.loaderSection}>
-            {loading && <ActivityIndicator  color={colors.primary} />}
+            {loading && <ActivityIndicator  color={colors.white} />}
             {title && 
-              <Text style={[styles.buttonText, {color:disabled?"black":colors.white, paddingLeft: loading ? 5: 0}]}>{title}</Text>}
+              <Text style={[styles.buttonText, { color:disabled ? "white":colors.white, paddingLeft: loading ? 5: 0}]}>{title}</Text>}
           </View>
       </TouchableOpacity>
     </View>
