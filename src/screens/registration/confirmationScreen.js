@@ -32,7 +32,7 @@ const ConfirmationScreen = () =>{
             >
             <Text style={styles.resendCode}>Renvoyer le code</Text>
           </TouchableOpacity>
-          <ButtonComponent title="Valider" />
+          <ButtonComponent title="Valider" primary />
         </View>
       </View>
     </TouchableWithoutFeedback>
