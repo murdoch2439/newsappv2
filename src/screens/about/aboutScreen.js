@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import colors from '../../components/theme/colors';
 
 
 const AboutScreen = () =>{
@@ -44,7 +45,7 @@ const AboutScreen = () =>{
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:'#72A52F',
+    backgroundColor:colors.primary,
   },
   textContainer:{
     justifyContent:"center",
@@ -53,10 +54,10 @@ const styles = StyleSheet.create({
   title:{
     fontWeight:'800',
     fontSize:22,
-    color:'white',
+    color:colors.white,
   },
   text:{
-    color:'white',
+    color:colors.white,
     fontSize:16
   },
   separator:{
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   },
   button:{
     borderWidth:1,
-    borderColor:'white',
+    borderColor:colors.white,
     borderRadius: 10,
     width:300,
     flexDirection:'row',
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     height:60
   },
   telegram:{
-    color:'white',
+    color:colors.white,
     fontSize:35
   }
 })

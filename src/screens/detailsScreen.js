@@ -1,7 +1,7 @@
 import React from 'react';
 import {View,StyleSheet, Text, Image, ScrollView} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-
+import colors from '../components/theme/colors';
 
 
 const DetailsScreen = ({route}) =>{
@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
         width:'100%',
         height:200,
         backgroundColor:'gray',
-        alignItems:'center'
+        alignItems:'center',
     },
     image:{
         width:'100%',
-        height:'100%'
+        height:'100%',
     },
     title:{
         // fontWeight:'bold',
@@ -67,12 +67,12 @@ const styles = StyleSheet.create({
         marginTop:20,
     },
     tagsIcon:{
-        color:'#72A52F',
+        color:colors.primary,
         fontSize:24,
         marginRight:10,
     },
     tagsName:{
-        color:'#72A52F',
+        color:colors.primary,
     }
 })
 
