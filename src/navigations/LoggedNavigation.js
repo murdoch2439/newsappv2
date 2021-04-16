@@ -2,11 +2,11 @@ import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeNavigation from './HomeNavigation'
 import NotificationsScreen from '../screens/notificationScreen'
-import RegistrationStack from '../screens/connection/registrationStack'
+import RegistrationStack from './RegistrationStackNavigation'
 import SavedInformationsScreen from '../screens/SavedInformationsScreen'
-import AboutStack from '../screens/about/aboutStack'
-import SideMenu from './SideMenu';
-  import UserProfileScreen from '../screens/profile/profile';
+import AboutStack from './AboutStackNavigation'
+import UserProfileScreen from '../screens/profile/profile';
+import LoggedSideMenu from './LoggedSideMenu';
 // import HeaderWithBackButton from './components/headerwithbackbutton'
 
 
@@ -23,7 +23,7 @@ const Drawer = createDrawerNavigator();
 const  LoggedDrawerNavigation = () =>{
         return(
         <Drawer.Navigator initialRouteName="Home" drawerContent={({navigation}) =>{
-                 return (<SideMenu navigation={navigation} />)
+                 return (<LoggedSideMenu navigation={navigation} />)
         }}>
                 <Drawer.Screen  name="Profile" component={UserProfileScreen} />
                 <Drawer.Screen name="Home" component={HomeNavigation} />
