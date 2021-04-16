@@ -11,7 +11,7 @@ const RegistrationStackNavigation = () => {
   return (
       <RegistrationStack.Navigator initialRouteName={SIGN_UP}>
         <RegistrationStack.Screen name={SIGN_UP} component={FormScreen} options={{headerShown:false}} />
-        <RegistrationStack.Screen name={CONFIRMATION} component={ConfirmationScreen}  options={{headerTitleAlign:'center'}}
+        <RegistrationStack.Screen name={CONFIRMATION} component={ConfirmationScreen}  options={{headerShown:false}}
          />
          
       </RegistrationStack.Navigator>
