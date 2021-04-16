@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, Image, TouchableNativeFeedback, TouchableWithoutFeedback} from 'react-native';
 import { Fontisto } from '@expo/vector-icons';
+import colors from './theme/colors';
 
 const InfoCard = ({item, navigation, onPressHandler}) =>{
   const {field_image, field_categorie, created, title} = item
@@ -39,7 +40,7 @@ const InfoCard = ({item, navigation, onPressHandler}) =>{
 const styles = StyleSheet.create({
   container:{
     height:310,
-    backgroundColor:'white',
+    backgroundColor:colors.white,
     margin:15,
     borderRadius:5,
   },
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
   },
   bookMark:{
     fontSize:35,
-    color:'white',
+    color:colors.white,
     backgroundColor:'transparent',
     
     
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
   },
   bookMarkcolored:{
     fontSize:35,
-    color:'white',
+    color:colors.white,
   },
   labelAndDateContainer:{
     flexDirection:'row',
@@ -93,15 +94,15 @@ const styles = StyleSheet.create({
     paddingHorizontal:5,
   },
   label:{
-    color:'white',
-    backgroundColor:'#72A52F',
+    color:colors.white,
+    backgroundColor:colors.primary,
     paddingHorizontal:5,
     borderRadius:2,
     fontWeight:'700',
     marginBottom:15,
   },
   label1:{
-    color:'white',
+    color:colors.white,
     paddingHorizontal:5,
     borderRadius:2,
     fontWeight:'700',
