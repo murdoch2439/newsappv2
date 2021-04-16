@@ -26,7 +26,7 @@ const InputComponent = ({
     }
     
     else{
-      return colors.grey
+      return colors.secondary
     }
   }
 
