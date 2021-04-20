@@ -1,21 +1,41 @@
 import React from 'react'
-import {View, StyleSheet, Text, TouchableOpacity} from 'react-native'
+import {View, StyleSheet, Text, TouchableOpacity, Alert} from 'react-native'
 import {  Feather } from '@expo/vector-icons';
 import ProfilePicture from '../../components/common/userProfile/profilePicture'
 import colors from '../../components/theme/colors'
 import UserInfoComponent from '../../components/common/userProfile/userInfo';
 import HeaderWithBackButton from '../../components/headerwithbackbutton';
+import logoutUser from '../../context/actions/logoutUser';
 
 
 
-const UserProfileScreen = ({navigation}) =>{
-  const openDrawer = () =>{
+const UserProfileScreen = ({navigation, registrationDispatch}) =>{
+  const goBackToHome = () =>{
         navigation.goBack()
     }
+
+  const handleLogout = () =>{
+    Alert.alert('Logout!', 'Are you sure you want to logout?', [
+      {
+        text: 'Cancel',
+        onPress: () => {},
+      },
+
+      {
+        text: 'OK',
+        onPress: () => {
+          logoutUser()(registrationDispatch);
+        },
+      },
+    
+    ] )
+  }
+
+
   return(
     <View style={styles.container}>
       {/* <HeaderBackButton  /> */}
-      <HeaderWithBackButton goBackToHome={openDrawer} />
+      <HeaderWithBackButton goBackToHome={goBackToHome} />
       
       {/* <Text style={styles.title}>Profile</Text> */}
         <ProfilePicture />
@@ -24,23 +44,24 @@ const UserProfileScreen = ({navigation}) =>{
             
             <UserInfoComponent 
               title="Username" 
-              content="KellyLordsy" 
+              content="username" 
               icon={
-                < Feather name="user" style={styles.icon} />
+                <Feather name="user" style={styles.icon} />
               } 
             />
       </View>
 
             <UserInfoComponent 
               title="Telephone" 
-              content="+243 80000000" 
+              content="phone number" 
               icon={
                 <Feather name="smartphone" style={styles.icon} />
               } 
             />
           
             
-        <TouchableOpacity 
+        <TouchableOpacity
+          onPress={handleLogout} 
             >
             <Text style={styles.supprimer}>Supprimer le compte</Text>
           </TouchableOpacity>
