@@ -2,6 +2,7 @@ import React from 'react';
 import {View,StyleSheet, Text, Image, ScrollView} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import colors from '../components/theme/colors';
+import categories from '../components/common/data/categories';
 
 
 const DetailsScreen = ({route}) =>{
@@ -22,7 +23,7 @@ const DetailsScreen = ({route}) =>{
             <View style={styles.tagsContainer}>
 
                 <AntDesign name="tags" style={styles.tagsIcon} />
-                <Text style={styles.tagsName}>Politique</Text>
+                <Text style={styles.tagsName}>{categories[item.field_categorie]}</Text>
             </View>
 
         </View>
