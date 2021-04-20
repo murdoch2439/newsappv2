@@ -19,5 +19,7 @@ export const A_PROPOS_DE_NOUS = 'A propos de nous';
 export const LA_TEAM = "L'equipe";
 export const SIGN_UP = 'Inscription';
 export const CONFIRMATION = 'Confirmation';
+export const NOTIFICATIONSDISABLED = 'Notifications';
+
 
 
