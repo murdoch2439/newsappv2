@@ -28,7 +28,7 @@ const DrawerNavigation = ({registrationDispatch}) =>{
 
         const {registrationState:{isLoggedIn}} = useContext(GlobalContext)
 
-        const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn)
+        const [isAuthenticated, setIsAuthenticated] = useState(false)
         const [authLoaded, setAuthLoaded] = useState(false)
         
 
@@ -54,7 +54,8 @@ const DrawerNavigation = ({registrationDispatch}) =>{
                 getUser()
         }, [isLoggedIn])
 
-        console.log("isLoggedIn : >>", isAuthenticated);
+        console.log("isLoggedIn : >>", isLoggedIn);
+        console.log("isAuthenticated : >>", isAuthenticated);
 
 
         return(
@@ -62,7 +63,7 @@ const DrawerNavigation = ({registrationDispatch}) =>{
 
         {authLoaded ? 
         <Drawer.Navigator initialRouteName={HOME_NAVIGATION} >     
-                { isAuthenticated ? <Drawer.Screen  name={USER_PROFILE} component={UserProfileScreen} registrationDispatch={registrationDispatch} /> : <Drawer.Screen  name={REGISTRATION} component={RegistrationStackNavigation} /> }
+                {isLoggedIn  || isAuthenticated ? <Drawer.Screen  name={USER_PROFILE} component={UserProfileScreen} registrationDispatch={registrationDispatch} /> : <Drawer.Screen  name={REGISTRATION} component={RegistrationStackNavigation} /> }
                 {/* <Drawer.Screen  name="Registration" component={RegistrationStack} />
                 <Drawer.Screen  name="User" component={UserProfileScreen} /> */}
                 <Drawer.Screen name={HOME_NAVIGATION} component={HomeNavigation} />
