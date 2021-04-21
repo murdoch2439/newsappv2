@@ -5,7 +5,7 @@ import {View, StyleSheet, Image} from 'react-native';
 const ProfilePicture = () =>{
   return(
     <View style={styles.container}>
-      <Image style={styles.image} source={require('../../../../assets/banniere.jpg')} />
+      <Image style={styles.image} source={require('../../../../assets/profile.png')} />
     </View>
   )
 }
