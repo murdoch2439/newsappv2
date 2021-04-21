@@ -17,8 +17,8 @@ const NotificationsScreen = ({navigation}) =>{
 
   const onPressHandler = () =>{
     return(
-
-      navigation.navigate(REGISTRATION)
+      console.log('This is :', isLoggedIn)
+      // navigation.navigate(REGISTRATION)
     )
   }
   return(
@@ -26,13 +26,14 @@ const NotificationsScreen = ({navigation}) =>{
       <HeaderWithBackButton goBackToHome={goBackToHome} />
       
       {/* <Text>Notification Screen</Text> */}
+      {/* {console.log('This is :', isLoggedIn)} */}
       {
         isLoggedIn ?
         <Text>There's nothing yet for you!</Text>:
         <View style={styles.mainSection}>
           <Image style={styles.image} source={require('../../assets/notification.png')} />
           <Text style={styles.text}>You need to be logged in for receiving notifications</Text>
-           <ButtonNoBgd handleOnpress ={onPressHandler} title="Get registrated" />
+           <ButtonNoBgd primary onPress ={onPressHandler} title="Get registrated" />
         </View>
       }
     </View>
