@@ -29,7 +29,7 @@ const InfoCard = ({item, navigation, onPressHandler}) =>{
           </View>
 
           <View style={styles.labelAndDateContainer}>
-            {field_categorie ? <Text style={styles.label}>{categories[field_categorie]}</Text> : <Text style={styles.label1}></Text>}
+            {field_categorie.length === 1 ? <Text style={styles.label}>{categories[field_categorie]}</Text> : <Text style={styles.label1}>{categories[{field_categorie},field_categorie]}</Text>}
              {/* {field_categorie.length ===1 ? <Text style={styles.label}>{categories[field_categorie]}</Text> : <Text style={styles.label1}>{`${categories[field_categorie]}, ${categories[field_categorie]}`}</Text>}           */}
             <Text style={styles.date}>{created}</Text>
           </View>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     marginBottom:15,
   },
   label1:{
-    // backgroundColor:colors.white,
+    backgroundColor:colors.primary,
     color:colors.white,
     paddingHorizontal:5,
     borderRadius:2,
