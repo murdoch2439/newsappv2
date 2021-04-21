@@ -4,7 +4,7 @@ export default {
   accent:'',
   danger:'red',
   success:'green',
-  grey:'grey',
+  grey:'#E5E5E5',
   white:'white',
   black:'black',
 }
