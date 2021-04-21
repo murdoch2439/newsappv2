@@ -1,23 +1,43 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import {View,StyleSheet,Text, TouchableOpacity, title, onPress} from 'react-native';
+import {View,StyleSheet,Text, TouchableOpacity} from 'react-native';
+import { REGISTRATION, SIGN_UP } from '../../../constants/routeNames';
+import colors from '../../theme/colors';
 
-const ButtonNoBgd = ({navigation}) =>{
+const ButtonNoBgd = ({navigation, title}) =>{
+  const {navigate} = useNavigation
+
+  const onPressHandler = ()=> {
+    return(
+
+      navigation.navigate(SIGN_UP)
+    )
+  }
 
   return(
-    <View style={styles.container}>
-      <TouchableOpacity
-          onPress={()=>{}} 
+    
+      <TouchableOpacity style={styles.container}
+          onPress={onPressHandler} 
             >
-            <Text style={styles.supprimer}>Add an account</Text>
+            <Text style={styles.buttonText}>{title}</Text>
           </TouchableOpacity>
-    </View>
+
   )
 }
 
 const styles = StyleSheet.create({
   container:{
-    flex:1,
+    backgroundColor:colors.primary,
+    marginTop:15,
+    padding:15,
+    marginHorizontal:80,
+    borderRadius:5
   },
+  buttonText:{
+    color:colors.white,
+    textAlign:'center',
+    fontSize:15,    
+  }
 })
 
 export default ButtonNoBgd
