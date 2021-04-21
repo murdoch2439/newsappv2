@@ -1,12 +1,12 @@
 import React, {useState, useContext, useEffect} from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import HomeNavigation from './HomeNavigation'
+import HomeNavigation from './homeNavigation'
 import NotificationsScreen from '../screens/notificationScreen'
 import RegistrationStackNavigation from './RegistrationStackNavigation'
 import SavedInformationsScreen from '../screens/SavedInformationsScreen'
 import AboutStackNavigation from './AboutStackNavigation'
 import UserProfileScreen from '../screens/profile/profile';
-import SideMenu from './SideMenu';
+// import SideMenu from './SideMenu';
 import { ABOUT, HOME_NAVIGATION, NOTIFICATIONS, REGISTRATION, SAVED_INFOS, USER_PROFILE } from '../constants/routeNames';
 import {GlobalContext} from '../context/Provider/'
 import AsyncStorage from '@react-native-async-storage/async-storage';

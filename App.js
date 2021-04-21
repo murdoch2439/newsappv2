@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import GlobalProvider from './src/context/Provider';
-import AppNavigationContainer from './src/navigations/AppNavigationContainer';
+import AppNavigationContainer from './src/navigations/appNavigationContainer';
 // import LandingPageScreen from './src/screens/landingPageScreen';
 
 
