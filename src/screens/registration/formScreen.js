@@ -53,11 +53,11 @@ const FormScreen = ({navigation}) =>{
 
   // console.log('registration state', registrationState);
 
-  useEffect(()=>{
-        if(data){
-      navigate(USER_PROFILE)
-    }
-    }, [data])
+  // useEffect(()=>{
+  //       if(data){
+  //     navigate(USER_PROFILE)
+  //   }
+  //   }, [data])
 
   const onChange = ({name, value}) =>{
     setForm({...form, [name]:value})
