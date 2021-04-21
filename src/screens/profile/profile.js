@@ -6,6 +6,7 @@ import colors from '../../components/theme/colors'
 import UserInfoComponent from '../../components/common/userProfile/userInfo';
 import HeaderWithBackButton from '../../components/headerwithbackbutton';
 import logoutUser from '../../context/actions/logoutUser';
+import ButtonNoBgd from '../../components/common/boutons/ButtonNobgd';
 
 
 
@@ -39,7 +40,8 @@ const UserProfileScreen = ({navigation, registrationDispatch}) =>{
       
       {/* <Text style={styles.title}>Profile</Text> */}
         <ProfilePicture />
-      <View style={styles.contentSection}>
+        <Text style={styles.text}>Votre compte vous permet de recevoir les notifications et mise a jour</Text>
+      {/* <View style={styles.contentSection}>
           
             
             <UserInfoComponent 
@@ -58,13 +60,15 @@ const UserProfileScreen = ({navigation, registrationDispatch}) =>{
                 <Feather name="smartphone" style={styles.icon} />
               } 
             />
-          
+           */}
+
+           <ButtonNoBgd onPress={handleLogout} danger title="Supprimer le compte" />
             
-        <TouchableOpacity
+        {/* <TouchableOpacity style={styles.button}
           onPress={handleLogout} 
             >
             <Text style={styles.supprimer}>Supprimer le compte</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
       
     </View>
   )
@@ -73,7 +77,7 @@ const UserProfileScreen = ({navigation, registrationDispatch}) =>{
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:colors.primary,
+    backgroundColor:colors.grey,
   },
   title:{
     fontSize:25,
@@ -89,11 +93,20 @@ const styles = StyleSheet.create({
     paddingHorizontal:50,
 
   },
+  button:{
+    backgroundColor:colors.danger
+  },
   supprimer:{
-    color:colors.danger,
+    color:colors.white,
     textAlign:'center',
     fontSize:15,
-    paddingTop:50,
+    // paddingTop:50,
+  },
+  text:{
+    marginHorizontal:10,
+    fontSize:18,
+    textAlign:'center',
+    paddingVertical:20,
   }
 })
 
