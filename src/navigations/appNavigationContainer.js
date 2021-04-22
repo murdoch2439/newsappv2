@@ -3,13 +3,14 @@ import { StatusBar } from 'expo-status-bar';
 import {NavigationContainer } from '@react-navigation/native';
 import { StyleSheet } from 'react-native';
 import DrawerNavigation from './DrawerNavigation';
+import { navigationRef } from './RootNavigator';
 // import LoggedDrawerNavigation from './LoggedNavigation';
 // import OnboardingScreen from '../components/onboarding/onboarding';
 
 const AppNavigationContainer = () =>{
   // const isLoggedIn = false
     return (
-            <NavigationContainer style={styles.container}>
+            <NavigationContainer style={styles.container} ref={navigationRef}>
               <StatusBar backgroundColor="#72A52F" style="light" translucent={false} />
               <DrawerNavigation />
               {/* <AuthDrawerNavigation />
