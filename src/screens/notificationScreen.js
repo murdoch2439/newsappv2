@@ -24,7 +24,7 @@ const NotificationsScreen = ({navigation}) =>{
   }
   return(
     <View style={styles.container}>
-      <HeaderWithBackButton goBackToHome={goBackToHome} />
+      <HeaderWithBackButton goBackToHome={goBackToHome} title="Notifications" />
       
       {/* <Text>Notification Screen</Text> */}
       {/* {console.log('This is :', isLoggedIn)} */}

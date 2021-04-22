@@ -11,7 +11,7 @@ const AboutStack = createStackNavigator();
 const AboutStackNavigation = () =>{
   return(
     <AboutStack.Navigator>
-      <AboutStack.Screen name={A_PROPOS_DE_NOUS} component={AboutScreen} options={{headerTitleAlign:'center'}} />
+      <AboutStack.Screen name={A_PROPOS_DE_NOUS} component={AboutScreen} options={{headerShown:false}} />
       <AboutStack.Screen name={LA_TEAM} component={TeamScreen} />
     </AboutStack.Navigator>
   )

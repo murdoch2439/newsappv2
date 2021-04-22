@@ -2,15 +2,20 @@ import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import colors from '../../components/theme/colors';
+import HeaderWithBackButton from '../../components/headerwithbackbutton';
 
 
-const AboutScreen = () =>{
+const AboutScreen = ({navigation}) =>{
+  const goBackToHome = () =>{
+        navigation.goBack()
+    }
   return(
     <View style={styles.container}>
+      <HeaderWithBackButton title="Qui nous sommes" goBackToHome={goBackToHome} />
       <View style={styles.textContainer}>
 
         <View style={styles.separator} />
-        <Text style={styles.title}>Qui nous sommes</Text>
+        <Text style={styles.title}>7sur7.cd</Text>
         <View style={styles.separator} />
 
         <Text style={styles.text}>Nous sommes le plus grand site d'infos en RDC.</Text>
@@ -45,7 +50,7 @@ const AboutScreen = () =>{
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:colors.primary,
+    backgroundColor:colors.white,
   },
   textContainer:{
     justifyContent:"center",
@@ -54,10 +59,10 @@ const styles = StyleSheet.create({
   title:{
     fontWeight:'800',
     fontSize:22,
-    color:colors.white,
+    color:colors.black,
   },
   text:{
-    color:colors.white,
+    color:colors.black,
     fontSize:16
   },
   separator:{
@@ -65,7 +70,7 @@ const styles = StyleSheet.create({
   },
   button:{
     borderWidth:1,
-    borderColor:colors.white,
+    borderColor:colors.primary,
     borderRadius: 10,
     width:300,
     flexDirection:'row',
@@ -75,7 +80,7 @@ const styles = StyleSheet.create({
     height:60
   },
   telegram:{
-    color:colors.white,
+    color:colors.primary,
     fontSize:35
   }
 })

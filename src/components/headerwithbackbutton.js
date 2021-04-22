@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {View, StyleSheet, Image, Text} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
 import { HeaderBackButton } from '@react-navigation/stack';
+import colors from './theme/colors';
 
-const HeaderWithBackButton = ({goBackToHome}) =>{
+const HeaderWithBackButton = ({goBackToHome, title}) =>{
 
   
     
@@ -12,6 +13,8 @@ const HeaderWithBackButton = ({goBackToHome}) =>{
         <View style={styles.container}>
             {/* <MaterialCommunityIcons name="keyboard-backspace" style={styles.backButton} onPress={goBackToHome} /> */}
             <HeaderBackButton style={styles.backButton} onPress={goBackToHome} />
+            
+            <Text style={styles.title}>{title}</Text>
         </View>
     )
 }
@@ -20,15 +23,19 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
         height:60,
-        backgroundColor:'white',
+        backgroundColor:colors.white,
         alignItems:'center',
-        justifyContent:'space-between',
-        paddingHorizontal:15
     },
     backButton:{
         fontSize:30,
-        color:'black',
+        color:colors.black,
+        paddingRight:20,
     },
+    title:{
+        fontSize:18,
+        fontWeight:'bold',
+        color:colors.black,
+    }
 })
 
 export default HeaderWithBackButton

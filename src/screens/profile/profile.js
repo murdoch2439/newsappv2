@@ -36,7 +36,7 @@ const UserProfileScreen = ({navigation, registrationDispatch}) =>{
   return(
     <View style={styles.container}>
       {/* <HeaderBackButton  /> */}
-      <HeaderWithBackButton goBackToHome={goBackToHome} />
+      <HeaderWithBackButton goBackToHome={goBackToHome} title="Profile" />
       
       {/* <Text style={styles.title}>Profile</Text> */}
         <ProfilePicture />

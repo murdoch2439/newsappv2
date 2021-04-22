@@ -5,12 +5,12 @@ import HeaderWithBackButton from '../components/headerwithbackbutton'
 
 
 const SavedInformationsScreen = ({navigation}) =>{
-  const openDrawer = () =>{
+  const goBackToHome = () =>{
         navigation.goBack()
     }
   return(
     <View style={styles.container}>
-      <HeaderWithBackButton goBackToHome={openDrawer} />
+      <HeaderWithBackButton goBackToHome={goBackToHome} title="A lire plus tard" />
       <Text>Saved informations Screen</Text>
       
     </View>
