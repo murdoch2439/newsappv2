@@ -41,7 +41,7 @@ const UserProfileScreen = ({navigation, registrationDispatch}) =>{
       {/* <Text style={styles.title}>Profile</Text> */}
         <ProfilePicture />
         <Text style={styles.text}>Votre compte vous permet de recevoir les notifications et mise a jour</Text>
-      {/* <View style={styles.contentSection}>
+      <View style={styles.contentSection}>
           
             
             <UserInfoComponent 
@@ -60,7 +60,7 @@ const UserProfileScreen = ({navigation, registrationDispatch}) =>{
                 <Feather name="smartphone" style={styles.icon} />
               } 
             />
-           */}
+          
 
            <ButtonNoBgd onPress={handleLogout} danger title="Supprimer le compte" />
             
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     color:colors.white,
   },
   icon:{
-    color:colors.secondary,
+    color:colors.accent,
     fontSize:30,
   },
   userInfos:{
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     fontSize:18,
     textAlign:'center',
     paddingVertical:20,
+    color:colors.accent
   }
 })
 

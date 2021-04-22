@@ -4,8 +4,9 @@ import {View,StyleSheet,Text, Image} from 'react-native';
 import ButtonNoBgd from '../components/common/boutons/ButtonNobgd';
 import HeaderWithBackButton from '../components/headerwithbackbutton'
 import colors from '../components/theme/colors';
-import { REGISTRATION } from '../constants/routeNames';
+import { REGISTRATION, SIGN_UP } from '../constants/routeNames';
 import { GlobalContext } from '../context/Provider';
+import { navigate } from '../navigations/RootNavigator';
 
 const NotificationsScreen = ({navigation}) =>{
   // const {navigation} = useNavigation()
@@ -16,10 +17,10 @@ const NotificationsScreen = ({navigation}) =>{
     }
 
   const onPressHandler = () =>{
-    return(
-      console.log('This is :', isLoggedIn)
+    
+      navigate(SIGN_UP)
       // navigation.navigate(REGISTRATION)
-    )
+    
   }
   return(
     <View style={styles.container}>
