@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,StyleSheet, Text, Image, ScrollView} from 'react-native';
+import {View,StyleSheet, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import colors from '../components/theme/colors';
 import categories from '../components/common/data/categories';
@@ -7,6 +7,8 @@ import categories from '../components/common/data/categories';
 
 const DetailsScreen = ({route}) =>{
     const {item} = route.params
+
+    console.log(item);
     
     return(
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -22,8 +24,12 @@ const DetailsScreen = ({route}) =>{
             <Text style={styles.content}>{item.body}</Text>
             <View style={styles.tagsContainer}>
 
-                <AntDesign name="tags" style={styles.tagsIcon} />
-                <Text style={styles.tagsName}>{categories[item.field_categorie]}</Text>
+
+                    <AntDesign name="tags" style={styles.tagsIcon} />
+                <TouchableOpacity >
+                    <Text style={styles.tagsName}>{categories[item.field_categorie]}</Text>
+                </TouchableOpacity>
+
             </View>
 
         </View>
@@ -34,16 +40,18 @@ const DetailsScreen = ({route}) =>{
 const styles = StyleSheet.create({
     container:{
         flex:1,
+        paddingBottom:50,
     },
     imageContainer:{
         width:'100%',
         height:200,
-        backgroundColor:'gray',
+        backgroundColor:colors.accent,
         alignItems:'center',
     },
     image:{
         width:'100%',
         height:'100%',
+        resizeMode:'cover'
     },
     title:{
         // fontWeight:'bold',
@@ -66,14 +74,16 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         marginHorizontal:15,
         marginTop:20,
+        alignItems:'center'
     },
     tagsIcon:{
         color:colors.primary,
-        fontSize:24,
+        fontSize:25,
         marginRight:10,
     },
     tagsName:{
         color:colors.primary,
+        fontSize:12
     }
 })
 
