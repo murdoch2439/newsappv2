@@ -50,7 +50,7 @@ const HomeScreen = ({navigation}) => {
     //     return null
     // }
 
-    const renderItem = ({item}) => <InfoCard item={item} onPressHandler={()=> navigation.navigate('Details', {item:item})} />;
+    const renderItem = ({item}) => <InfoCard item={item} onPressHandler={()=> navigation.navigate('Details', {item})} />;
                     
 
     return(
