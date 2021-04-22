@@ -11,6 +11,7 @@ import { ABOUT, HOME_NAVIGATION, NOTIFICATIONS, REGISTRATION, SAVED_INFOS, USER_
 import {GlobalContext} from '../context/Provider/'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ActivityIndicator } from 'react-native';
+import colors from '../components/theme/colors';
 // import HeaderWithBackButton from './components/headerwithbackbutton'
 
 
@@ -66,6 +67,7 @@ const DrawerNavigation = ({registrationDispatch}) =>{
                 {isLoggedIn  || isAuthenticated ? <Drawer.Screen  name={USER_PROFILE} component={UserProfileScreen} registrationDispatch={registrationDispatch} /> : <Drawer.Screen  name={REGISTRATION} component={RegistrationStackNavigation} /> }
                 {/* <Drawer.Screen  name="Registration" component={RegistrationStack} />
                 <Drawer.Screen  name="User" component={UserProfileScreen} /> */}
+                
                 <Drawer.Screen name={HOME_NAVIGATION} component={HomeNavigation} />
                 <Drawer.Screen name={NOTIFICATIONS} component={NotificationsScreen} />
                 <Drawer.Screen name={SAVED_INFOS} component={SavedInformationsScreen} />
