@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, Text, Image, TouchableNativeFeedback, TouchableWithoutFeedback} from 'react-native';
+import {View, StyleSheet, Text, Image, TouchableWithoutFeedback} from 'react-native';
 import { Fontisto } from '@expo/vector-icons';
 import colors from './theme/colors';
 import categories from './common/data/categories';
 
-const InfoCard = ({item, navigation, onPressHandler}) =>{
+const InfoCard = ({item, onPressHandler}) =>{
   const {field_image, field_categorie, created, title} = item
   const [addBookmark, setAddbookmark] = useState(false)
   
@@ -15,13 +15,13 @@ const InfoCard = ({item, navigation, onPressHandler}) =>{
     setAddbookmark(false)
   }
 
-  const theDate = new Date( Date.parse('2021-04-19T17:22:56+0100'));
+  const theDate = new Date( Date.parse('2021-04-22T16:22:56+0100'));
   return(
       <TouchableWithoutFeedback onPress={onPressHandler}>
         <View style={styles.container} >
         
           <View style={styles.imageContainer}>
-            {field_image ?<Image source={{uri:`https://7sur7.cd${field_image}`}} style={styles.image} />:<Image source={require('../../assets/noImage.png')} style={{width:200, height:200, backgroundColor:'gray'}} />}
+            {field_image ?<Image source={{uri:`https://7sur7.cd${field_image}`}} style={styles.image} />:<Image source={require('../../assets/noImage.png')} style={styles.noImage} />}
           </View>
 
           <View style={styles.bookMarkContainer}>
@@ -29,11 +29,12 @@ const InfoCard = ({item, navigation, onPressHandler}) =>{
           </View>
 
           <View style={styles.labelAndDateContainer}>
-            {field_categorie.length === 1 ? <Text style={styles.label}>{categories[field_categorie]}</Text> : <Text style={styles.label1}>{categories[{field_categorie},field_categorie]}</Text>}
-             {/* {field_categorie.length ===1 ? <Text style={styles.label}>{categories[field_categorie]}</Text> : <Text style={styles.label1}>{`${categories[field_categorie]}, ${categories[field_categorie]}`}</Text>}           */}
+            {field_categorie.length === 1 ? 
+              <Text style={styles.label}>{categories[field_categorie]}</Text> : <Text style={styles.label}>{categories[field_categorie]}</Text>
+            }
+             
             <Text style={styles.date}>{created}</Text>
           </View>
-          {/* <Text style={styles.title} numberOfLines={4}>RDC: Here goes the info title that describe well the article, this should fit on 4 lines only I wish it will be good enough for people to enjoy what will be shown here I've got nothing left to say but I need to say something to fill the space and check out what the output will look like, that why I'm sorry to joke on you  </Text> */}
           
           <Text style={styles.title} numberOfLines={4}>{title}</Text>
       </View>
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     borderRadius:5,
   },
   imageContainer:{
-    backgroundColor:'gray',
+    backgroundColor:colors.accent,
     width:'100%',
     alignItems:'center',
     borderTopRightRadius:5,
@@ -61,7 +62,12 @@ const styles = StyleSheet.create({
     borderTopRightRadius:5,
     borderTopLeftRadius:5,
     opacity:0.8,
-    backgroundColor:'gray'
+    backgroundColor:colors.accent
+  },
+  noImage:{
+    width:200, 
+    height:200, 
+    backgroundColor:colors.accent
   },
   bookMarkContainer:{
     // backgroundColor:'pink',
@@ -105,14 +111,6 @@ const styles = StyleSheet.create({
     fontWeight:'700',
     marginBottom:15,
   },
-  label1:{
-    backgroundColor:colors.primary,
-    color:colors.white,
-    paddingHorizontal:5,
-    borderRadius:2,
-    fontWeight:'700',
-    marginBottom:15,
-  },
   date:{
     fontStyle:'italic',
     fontSize:12,
@@ -123,6 +121,7 @@ const styles = StyleSheet.create({
     marginHorizontal:5,
     fontSize:15,
     textAlign:'justify',
+    color:colors.black
   }
 })
 
