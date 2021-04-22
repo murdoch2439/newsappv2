@@ -12,7 +12,9 @@ const UserInfoComponent = ({title, icon, content}) =>{
           {icon && icon}
         </View>
 
-          <Text style={styles.text}>{title} : {content}</Text>
+          <Text style={styles.text1}>{title} : 
+          <Text style={styles.text2}> {content}</Text>
+          </Text>
         
 
       </View>
@@ -36,9 +38,14 @@ const styles = StyleSheet.create({
     borderBottomColor:colors.black,
     paddingHorizontal:10,
   },
-  text:{
+  text1:{
     flex:1,
-    color:colors.white,
+    color:colors.accent,
+    fontSize:18,
+    marginLeft:40,
+  },text2:{
+    // flex:1,
+    color:colors.black,
     fontSize:18,
     marginLeft:40,
   },
