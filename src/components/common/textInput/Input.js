@@ -72,6 +72,8 @@ const styles = StyleSheet.create({
     // paddingHorizontal:10,
     // backgroundColor:'red',
     // justifyContent:'center'
+    // backgroundColor:'blue',
+    height:75
   },
   textInputContainer:{
     flexDirection:'row', 
