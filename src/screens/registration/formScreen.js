@@ -66,7 +66,12 @@ const FormScreen = ({navigation}) =>{
           if(name === 'phoneNumber'){
             if(value.length <10){
                 setErrors((prev) =>{
-                return {...prev, [name]:"Ce champs doit avoir 10 chiffres"}
+                return {
+                  ...prev, 
+                  [name]:<View style={styles.suggestionContainer}>
+                  <Text style={styles.suggestionTextGray}>Le numero doit avoir 10 characteres </Text>
+                  <AntDesign name="checkcircle" size={16} color="gray" />
+                  </View>}
                 })
             }else{
               setErrors((prev) =>{
@@ -254,6 +259,8 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     marginHorizontal:20,
     marginTop:20,
+    // justifyContent:'center',
+    
 
   },
   suggestionTextGreen:{
