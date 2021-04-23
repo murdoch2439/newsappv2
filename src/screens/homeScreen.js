@@ -11,6 +11,7 @@ import articlesApi from '../api/7s7Api'
 const HomeScreen = ({navigation}) => {
     const [news, setNews] = useState([])
     const [loading, setLoading] = useState(true)
+    const [refreshing, setRefreshing] = useState(false)
 
     const listEmptyComponent = () => {
         if (loading) {
