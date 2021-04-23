@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import { Feather as anotherIcon } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import colors from './theme/colors';
 const HomeHeader = ({navigation}) =>{
     const openMenu = () =>{
         navigation.openDrawer()
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
         height:60,
-        backgroundColor:'#72A52F',
+        backgroundColor:colors.primary,
         // backgroundColor:'white',
         alignItems:'center',
         justifyContent:'space-between',
@@ -31,12 +32,12 @@ const styles = StyleSheet.create({
     },
     menu:{
         fontSize:30,
-        color:'white',
+        color:colors.white,
         // color:'black'
     },
     bell:{
         fontSize:25,
-        color:'white',
+        color:colors.white,
         // color:'black'
     },
     image:{
