@@ -7,6 +7,7 @@ import UserInfoComponent from '../../components/common/userProfile/userInfo';
 import HeaderWithBackButton from '../../components/headerwithbackbutton';
 import logoutUser from '../../context/actions/logoutUser';
 import ButtonNoBgd from '../../components/common/boutons/ButtonNobgd';
+import fontSize from '../../components/theme/fontSize';
 
 
 
@@ -35,15 +36,12 @@ const UserProfileScreen = ({navigation, registrationDispatch}) =>{
 
   return(
     <View style={styles.container}>
-      {/* <HeaderBackButton  /> */}
+      
       <HeaderWithBackButton goBackToHome={goBackToHome} title="Profile" />
       
-      {/* <Text style={styles.title}>Profile</Text> */}
         <ProfilePicture />
         <Text style={styles.text}>Votre compte vous permet de recevoir les notifications et mise a jour</Text>
       <View style={styles.contentSection}>
-          
-            
             <UserInfoComponent 
               title="Username" 
               content="username" 
@@ -52,7 +50,6 @@ const UserProfileScreen = ({navigation, registrationDispatch}) =>{
               } 
             />
       </View>
-
             <UserInfoComponent 
               title="Telephone" 
               content="phone number" 
@@ -60,15 +57,9 @@ const UserProfileScreen = ({navigation, registrationDispatch}) =>{
                 <Feather name="smartphone" style={styles.icon} />
               } 
             />
-          
+
 
            <ButtonNoBgd onPress={handleLogout} danger title="Supprimer le compte" />
-            
-        {/* <TouchableOpacity style={styles.button}
-          onPress={handleLogout} 
-            >
-            <Text style={styles.supprimer}>Supprimer le compte</Text>
-          </TouchableOpacity> */}
       
     </View>
   )
@@ -80,16 +71,16 @@ const styles = StyleSheet.create({
     backgroundColor:colors.grey,
   },
   title:{
-    fontSize:25,
+    fontSize:fontSize.twentyFive,
     color:colors.white,
   },
   icon:{
     color:colors.accent,
-    fontSize:30,
+    fontSize:fontSize.thirty,
   },
   userInfos:{
     color:colors.white,
-    fontSize:18,
+    fontSize:fontSize.eighteen,
     paddingHorizontal:50,
 
   },
@@ -99,12 +90,12 @@ const styles = StyleSheet.create({
   supprimer:{
     color:colors.white,
     textAlign:'center',
-    fontSize:15,
+    fontSize:fontSize.fifteen,
     // paddingTop:50,
   },
   text:{
     marginHorizontal:10,
-    fontSize:18,
+    fontSize:fontSize.eighteen,
     textAlign:'center',
     paddingVertical:20,
     color:colors.accent
