@@ -29,12 +29,13 @@ const styles = StyleSheet.create({
     backButton:{
         fontSize:30,
         color:colors.black,
-        paddingRight:20,
     },
     title:{
         fontSize:18,
         fontWeight:'bold',
         color:colors.black,
+        paddingLeft:20,
+
     }
 })
 
