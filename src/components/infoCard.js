@@ -19,7 +19,7 @@ const InfoCard = ({item, onPressHandler}) =>{
   return(
       <TouchableWithoutFeedback onPress={onPressHandler}>
         <View style={styles.container} >
-        
+
           <View style={styles.imageContainer}>
             {field_image ?<Image source={{uri:`https://7sur7.cd${field_image}`}} style={styles.image} />:<Image source={require('../../assets/noImage.png')} style={styles.noImage} />}
           </View>
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     backgroundColor:colors.white,
     margin:15,
     borderRadius:5,
+    // marginTop:60,
   },
   imageContainer:{
     backgroundColor:colors.accent,

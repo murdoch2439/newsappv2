@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native'
+import { View, StyleSheet, FlatList, ActivityIndicator, RefreshControl } from 'react-native'
 import InfoCard from '../components/infoCard'
 import articlesApi from '../api/7s7Api'
+import colors from '../components/theme/colors'
 // import axios from 'axios'
 
 
@@ -11,13 +12,17 @@ import articlesApi from '../api/7s7Api'
 const HomeScreen = ({navigation}) => {
     const [news, setNews] = useState([])
     const [loading, setLoading] = useState(true)
-    const [refreshing, setRefreshing] = useState(false)
+    const [isRefreshing, setIsRefreshing] = useState(false)
+    const [page, setPage] = useState('1')
+    
+
+     
 
     const listEmptyComponent = () => {
-        if (loading) {
+        if (loading && page ===1) {
                     return (
                         <View style={styles.loading}>
-                            <ActivityIndicator size="large"  color="#72A52F" />
+                            <ActivityIndicator size="large"  color={colors.primary} />
                         </View>
                         );
                     }
@@ -26,33 +31,66 @@ const HomeScreen = ({navigation}) => {
     }
 
     useEffect(()=>{
-        setTimeout(()=>{
+        // setTimeout(()=>{
 
             getNewsFromAPI()
-        }, 1000)
+        // }, 1000)
         
 
     }, [])
-    const getNewsFromAPI = () =>{
-        articlesApi.get('/all')
+    const getNewsFromAPI = (page) =>{
+        articlesApi.get(`/all?page=${page}`)
         .then( async (response) => {
+            let listData= news
+            let data = listData.concat(response.data)
             // console.log(response.data);
-            setNews(response.data)
+            setNews(data)
             setLoading(false);
+            setIsRefreshing(false)
+            console.log(response.data);
+
             
         })
         .catch((error) => {
+            setLoading(false);
             console.log(error);
     
         })
+    }
+
+    const handleRefreshing= () =>{
+        setIsRefreshing(true)
+        getNewsFromAPI()
     }
 
     // if(!news){
     //     return null
     // }
 
-    const renderItem = ({item}) => <InfoCard item={item} onPressHandler={()=> navigation.navigate('Details', {item})} />;
+    const renderItem = ({item}) => <InfoCard item={item} loading={loading} onPressHandler={()=> navigation.navigate('Details', {item})} />;
+
+    const renderFooter = () => {
+   
+        if (!loading){
+            return null
+        }else{
+
+            return (
+            
+            <View style={styles.loading}>
+                            <ActivityIndicator size="large"  color={colors.primary} />
+                        </View>
+            )
+        }
+  }
                     
+
+  const handleLoadMore = () => {
+    if (!loading) {
+      setPage( page + 1 ); // increase page by 1
+      getNewsFromAPI(page); // method for API call 
+    }
+  };
 
     return(
         
@@ -61,10 +99,17 @@ const HomeScreen = ({navigation}) => {
             <FlatList
                 showsVerticalScrollIndicator={false}
                 data={news}
+                extraData={setNews}
                 keyExtractor={(article) => String(article.nid)}
                 renderItem ={renderItem}
                 ListEmptyComponent={listEmptyComponent}
-                
+                refreshControl={
+                    <RefreshControl refreshing={isRefreshing} onRefresh={handleRefreshing} />
+                }
+                ListFooterComponent={renderFooter}
+                onEndReachedThreshold={0.5}
+                // ListFooterComponentStyle={{backgroundColor:'green'}}
+                onEndReached={handleLoadMore}
             />
             
         </View>
@@ -74,8 +119,7 @@ const HomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'#CCCCCC'
-
+        backgroundColor:'#CCCCCC',
     },
     loading: {
         // flex:1,
