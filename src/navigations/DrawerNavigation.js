@@ -32,7 +32,6 @@ const DrawerNavigation = ({registrationDispatch}) =>{
         const [isAuthenticated, setIsAuthenticated] = useState(false)
         const [authLoaded, setAuthLoaded] = useState(false)
         
-
         const getUser = async () =>{
                 try{
                         const user =  await AsyncStorage.getItem('user')
@@ -78,7 +77,6 @@ const DrawerNavigation = ({registrationDispatch}) =>{
         }
         </>
         )
-
 }
 
 export default DrawerNavigation

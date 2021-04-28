@@ -19,7 +19,7 @@ export default ({ userName: user_name, phoneNumber: phone_number }) => dispatch 
     }
     const storeData = async (user) => {
       try {
-          await AsyncStorage.setItem('user', JSON.stringify(res.data.user_name, res.data.user_name) )
+          await AsyncStorage.setItem(user, JSON.stringify(res.data.user_name, res.data.user_name) )
       } catch (error) {
           console.log(error);
         }

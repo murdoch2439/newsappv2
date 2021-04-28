@@ -3,7 +3,7 @@ import { DELETE_USER } from '../../constants/actionsTypes';
 
 export default () => (dispatch) => {
   AsyncStorage.removeItem('_id');
-  AsyncStorage.removeItem('user');
+  AsyncStorage.removeItem(user);
   dispatch({
     type: DELETE_USER,
   });
